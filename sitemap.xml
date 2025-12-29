@@ -6,4 +6,16 @@
       <changefreq>monthly</changefreq>
       <priority>1.0</priority>
    </url>
+   <url>
+      <loc>https://thetaskyapp.com/privacy.html</loc>
+      <lastmod>2023-10-27</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://thetaskyapp.com/terms.html</loc>
+      <lastmod>2023-10-27</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>1.0</priority>
+   </url>
 </urlset>

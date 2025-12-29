@@ -75,12 +75,17 @@
 <body>
     <!-- Accessibility: ARIA role for header -->
     <header class="top-menu" role="banner">
+        <div class="terms-of-use-wrapper">
+            <a href="./terms.html" class="term-of-use" aria-label="Read our Terms of Use">Term Of Use</a>
+        </div>
         <div class="logo">
             <a href="./index.html" aria-label="Read our Homepage">
                 <img src="./images/Logo.webp" alt="Tasky App Logo" width="50" height="50">
             </a>
         </div>
-        <a href="./policies.html" class="privacy-policy" aria-label="Read our Privacy Policy">Privacy Policy</a>
+        <div class="privacy-policy-wrapper">
+            <a href="./policies.html" class="privacy-policy" aria-label="Read our Privacy Policy">Privacy Policy</a>
+        </div>
     </header>
 
     <!-- Accessibility: ARIA role for main content -->
@@ -100,12 +105,20 @@
         </div>
     </main>
 
+    <div class="citation-link-container">
+        <a href="https://comsci.tech" target="_blank" class="citation-button">
+            Website by Comsci
+        </a>
+    </div>
+
     <!-- Defer Lottie Script -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" defer></script>
 
-    <!-- Lottie Animation -->
-    <lottie-player src="./lottie/Normal.json" background="transparent" speed="1" loop autoplay
-        aria-label="Animated illustration of Tasky app usage"></lottie-player>
+    <!-- Lottie Animation - NOW WRAPPED IN A CONTAINER -->
+    <div class="lottie-background-container">
+        <lottie-player src="./lottie/Normal.json" background="transparent" speed="1" loop autoplay
+            aria-label="Animated illustration of Tasky app usage"></lottie-player>
+    </div>
 </body>
 
 </html>
