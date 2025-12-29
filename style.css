@@ -168,7 +168,7 @@ lottie-player {
 
 .citation-link-container {
     position: absolute;
-    bottom: 50px;
+    bottom: 40px;
     /* Adjust this value to move it up/down from the bottom */
     left: 50%;
     transform: translateX(-50%);
@@ -180,12 +180,12 @@ lottie-player {
 
 .citation-button {
     display: inline-block;
-    padding: 15px 40px;
+    padding: 12px 32px;
     background-color: #FFFFFF;
     color: var(--color-text-primary);
     text-decoration: none;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
     border-radius: 50px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
