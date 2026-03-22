@@ -40,29 +40,69 @@ button:focus {
     margin: 20px 0;
     display: flex;
     justify-content: space-between;
-    /* Changed to space-between */
     align-items: center;
     position: relative;
     width: 100%;
     box-sizing: border-box;
     padding: var(--spacing-sm) var(--spacing-lg);
-    /* Added horizontal padding */
+}
+
+.header-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.header-left {
+    justify-content: flex-start;
+}
+
+.header-right {
+    justify-content: flex-end;
+    gap: 30px;
+    /* Space between Term of Use and Privacy Policy */
 }
 
 .logo {
-    margin: 0;
-    /* Removed margin to allow for flex distribution */
-    text-align: center;
     position: absolute;
-    /* Position absolute for centering */
     left: 50%;
     transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.logo-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .logo img {
     width: 50px;
     height: auto;
     display: block;
+}
+
+.logo-text {
+    font-weight: 800;
+    font-size: 16px;
+    color: #000;
+    margin-top: 4px;
+}
+
+.nav-link {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    color: var(--color-accent);
 }
 
 .privacy-policy-wrapper,
@@ -168,7 +208,6 @@ lottie-player {
 
 .citation-link-container {
     position: absolute;
-    bottom: 40px;
     /* Adjust this value to move it up/down from the bottom */
     left: 50%;
     transform: translateX(-50%);
@@ -196,121 +235,6 @@ lottie-player {
     /* Slightly more pronounced shadow on hover */
     transform: translateY(-2px);
     /* Slight lift effect */
-}
-
-@media (max-width: 768px) {
-    body {
-        overflow: hidden !important;
-    }
-
-    .top-menu {
-        justify-content: space-between;
-        padding: var(--spacing-sm);
-    }
-
-    .privacy-policy {
-        position: static;
-        transform: none;
-    }
-
-    .logo {
-        margin: 0;
-        flex-grow: 0;
-        text-align: left;
-    }
-
-    .header-content {
-        padding: var(--spacing-xs) 0;
-    }
-
-    h1 {
-        font-size: 40px;
-        line-height: 1.2;
-    }
-
-    .header-content h2 {
-        max-width: 100%;
-        margin: 15px auto;
-    }
-
-    .availability {
-        margin-top: var(--spacing-md);
-    }
-
-    .app-links {
-        gap: var(--spacing-xs);
-    }
-
-    .app-links a img {
-        width: 140px;
-    }
-
-    .lottie-background-container {
-        height: 200px;
-        width: 100%;
-        left: 0;
-        bottom: 0;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        pointer-events: none;
-        z-index: -1;
-    }
-
-    .lottie-background-container lottie-player {
-        width: 180vw;
-        height: 180vw;
-        bottom: -35%;
-        left: auto;
-        transform: none;
-        max-width: none;
-    }
-
-    .citation-link-container {
-        display: none;
-    }
-}
-
-@media (max-width: 480px) {
-
-    html {
-        overflow: hidden;
-    }
-
-    body {
-        overflow: hidden !important;
-    }
-
-    .top-menu {
-        margin: 30px 0;
-    }
-
-    .header-content {
-        margin: 0;
-    }
-
-    .privacy-policy-wrapper,
-    .terms-of-use-wrapper {
-        display: none;
-    }
-
-    h1 {
-        font-size: 32px;
-        line-height: .9;
-    }
-
-    .header-content h2 {
-        font-size: 14px;
-    }
-
-    lottie-player {
-        width: 150%;
-        bottom: -60%;
-    }
-
-    .citation-link-container {
-        display: none;
-    }
 }
 
 .policy-page {
@@ -419,7 +343,319 @@ lottie-player {
     padding-top: var(--spacing-md);
 }
 
+/* --- Plans Page Specific Styles --- */
+
+.plans-page {
+    overflow-y: auto !important;
+    /* Allow scroll on this page */
+}
+
+.logo-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-text-primary);
+}
+
+.logo-text {
+    font-weight: 900;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.plans-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.plans-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.plans-header h1 {
+    font-size: 44px;
+    line-height: 1.1;
+    color: var(--color-accent);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.plans-header p {
+    font-size: 13px;
+    color: var(--color-text-primary);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
+
+/* Pricing Grid */
+.pricing-cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.price-card {
+    flex: 1;
+    max-width: 440px;
+    background: #FFFFFF;
+    border-radius: 40px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-card {
+    background: var(--color-accent);
+    color: #FFFFFF;
+}
+
+/* Badges */
+.card-badge {
+    background: #CDCDCD;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 20px;
+    border-radius: 50px;
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+.paid-badge {
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Pricing Text */
+.price-card h2 {
+    font-size: 32px;
+    margin: 0 0 15px 0;
+    font-weight: 700;
+}
+
+.price-block {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 30px;
+}
+
+.currency {
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.amount {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0 5px;
+}
+
+.duration {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+/* Features List */
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-list li {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 18px;
+}
+
+.check-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    margin-right: 12px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.check-icon.grey {
+    background: #CDCDCD;
+}
+
+.check-icon.white {
+    background: #FFFFFF;
+    color: var(--color-accent);
+}
+
+.check-icon::after {
+    content: "✓";
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.check-icon.grey::after {
+    color: #FFFFFF;
+}
+
+.info-item {
+    color: var(--color-text-secondary);
+    margin-top: 10px !important;
+}
+
+.info-icon {
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--color-text-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    font-family: serif;
+    font-size: 12px;
+    margin-right: 12px;
+}
+
+/* School Plan Section */
+.school-plan-section {
+    background-color: #FFFFFF;
+    border-radius: 40px;
+    padding: 60px 20px;
+    text-align: center;
+    margin: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.school-content {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.school-plan-section h2 {
+    color: var(--color-accent);
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.school-plan-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin-bottom: 30px;
+}
+
+.cta-button-plans {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 18px 45px;
+    border-radius: 50px;
+    transition: transform 0.2s;
+}
+
+.cta-button-plans:hover {
+    transform: scale(1.05);
+}
+
 @media (max-width: 768px) {
+    body {
+        overflow: hidden !important;
+    }
+
+    .top-menu {
+        padding: var(--spacing-sm);
+    }
+
+    /* Optional: If screen gets too small, stack links or reduce gap */
+    .header-right {
+        gap: 15px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .privacy-policy {
+        position: static;
+        transform: none;
+    }
+
+    .logo {
+        margin: 0;
+        flex-grow: 0;
+        text-align: left;
+    }
+
+    .header-content {
+        padding: var(--spacing-xs) 0;
+    }
+
+    h1 {
+        font-size: 40px;
+        line-height: 1.2;
+    }
+
+    .header-content h2 {
+        max-width: 100%;
+        margin: 15px auto;
+    }
+
+    .availability {
+        margin-top: var(--spacing-md);
+    }
+
+    .app-links {
+        gap: var(--spacing-xs);
+    }
+
+    .app-links a img {
+        width: 140px;
+    }
+
+    .lottie-background-container {
+        height: 200px;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .lottie-background-container lottie-player {
+        width: 180vw;
+        height: 180vw;
+        bottom: -35%;
+        left: auto;
+        transform: none;
+        max-width: none;
+    }
+
+    .citation-link-container {
+        display: none;
+    }
+
     .policy-card {
         padding: 30px;
     }
@@ -430,5 +666,83 @@ lottie-player {
 
     .policy-header {
         padding: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+
+    html {
+        overflow: hidden;
+    }
+
+    body {
+        overflow: hidden !important;
+    }
+
+    .top-menu {
+        margin: 30px 0;
+    }
+
+    .header-content {
+        margin: 0;
+    }
+
+    .privacy-policy-wrapper,
+    .terms-of-use-wrapper {
+        display: none;
+    }
+
+    h1 {
+        font-size: 32px;
+        line-height: .9;
+    }
+
+    .header-content h2 {
+        font-size: 14px;
+    }
+
+    lottie-player {
+        width: 150%;
+        bottom: -60%;
+    }
+
+    .citation-link-container {
+        display: none;
+    }
+
+    .pricing-cards {
+        margin: 10px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .pricing-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .price-card {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    .plans-header h1 {
+        font-size: 32px;
+    }
+
+    .price-card {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Hiding side links on very small mobile as per your previous logic, 
+       keeping focus on the Logo */
+    .header-side {
+        display: none;
     }
 }
